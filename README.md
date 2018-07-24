@@ -1,4 +1,4 @@
-![](https://travis-ci.org/JestonBlu/FixedWidthR.svg?branch=master)
+![](https://travis-ci.org/JestonBlu/fixedWidth.svg?branch=master)
 
 # An R Package for Writing Configurable Fixed Width Files
 
