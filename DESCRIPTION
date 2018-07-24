@@ -1,4 +1,4 @@
-Package: FixedWidth
+Package: fixedWidth
 Type: Package
 Title: A configurable method for writing fixed width files
 Version: 0.1
