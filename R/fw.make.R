@@ -16,6 +16,7 @@
 #'     end = 10,
 #'     align = "l",
 #'     padding = " ",
+#'     trim = FALSE,
 #'     required = TRUE
 #'   ),
 #'   item2 = list(
@@ -23,6 +24,7 @@
 #'     end = 20,
 #'     align = "r",
 #'     padding = 0,
+#'     trim = TRUE,
 #'     required = FALSE,
 #'     default = " "
 #'   )
@@ -42,9 +44,9 @@ fw.make <- function(conf, data, file = FALSE) {
   x = c()
   x2 = data.frame(1)
   for (i in 1:conf.cols) {
-    if (conf[[i]][5] == FALSE) {
+    if (conf[[i]][6] == FALSE) {
       x = c(x, i)
-      x2 = cbind(x2, data.frame(conf[[i]][6]))
+      x2 = cbind(x2, data.frame(conf[[i]][7]))
     }
   }
   x2 = data.frame(x2[, -1])
@@ -55,15 +57,24 @@ fw.make <- function(conf, data, file = FALSE) {
   # Put the data frame in the correct orders
   dta = data[, conf.names]
 
+  # Get a list of fields to trim
+  x = c()
+  for (i in 1:conf.cols) {
+    if (conf[[i]][5] == TRUE) {
+      x = c(x, i)
+    }
+  }
+
   # Apply string formatting to all columns
   dta = apply(X = dta, MARGIN = 2, FUN = function(X) as.character(X))
+  dta[, x] = apply(X = as.data.frame(dta[, x]), MARGIN = 2, FUN = function(X) trimws(X))
 
   # Look through each config list
   for (i in 1:conf.cols) {
 
     # Target vector (trim special characters)
     x = as.character(dta[, i])
-    x = gsub(pattern = "[^0-9a-zA-Z]+", replacement = "", x = x)
+    x = gsub(pattern = "[\\.]", replacement = "", x = x)
 
     # Padding
     conf.padding = as.character(conf[[i]][4])
@@ -89,8 +100,7 @@ fw.make <- function(conf, data, file = FALSE) {
 
   # Write out file
   if (file != FALSE) {
-    row.names(dta) = NULL
-   write.table(x = dta, file = file, sep = "", quote = FALSE, col.names = FALSE)
+   write.table(x = dta, file = file, sep = "", quote = FALSE, col.names = FALSE, row.names = FALSE)
   } else {
    return(dta)
   }
