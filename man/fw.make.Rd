@@ -24,6 +24,7 @@ conf = list(
     end = 10,
     align = "l",
     padding = " ",
+    trim = FALSE,
     required = TRUE
   ),
   item2 = list(
@@ -31,6 +32,7 @@ conf = list(
     end = 20,
     align = "r",
     padding = 0,
+    trim = TRUE,
     required = FALSE,
     default = " "
   )
