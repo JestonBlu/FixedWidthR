@@ -18,6 +18,7 @@ conf = list(
     end = 10,
     align = "l",
     padding = " ",
+    trim = TRUE,
     required = TRUE
   ),
 item2 = list(
@@ -25,13 +26,14 @@ item2 = list(
     end = 20,
     align = "r",
     padding = 0,
+    trim = TRUE,
     required = FALSE,
     default = " "
   )
 )
 
 # Example Data Frame
-data = data.frame(item1 = c("AAAA", "BBBB", "CCCC"), item2 = c(254, 2.25, 1.4))
+data = data.frame(item1 = c("AAAA", " BBBB", "CCCC"), item2 = c(254, 2.25, 1.4))
 
 fw.make(conf, data, file = 'EXAMPLE')
 
