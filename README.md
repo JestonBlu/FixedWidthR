@@ -1,4 +1,4 @@
-![](https://travis-ci.org/JestonBlu/fixedWidth.svg?branch=master)
+![](https://travis-ci.org/JestonBlu/fixedWidth.svg?branch=master) ![]([![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2041/badge)](https://bestpractices.coreinfrastructure.org/projects/2041))
 
 # An R Package for Writing Configurable Fixed Width Files
 
