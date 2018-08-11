@@ -22,7 +22,7 @@ conf = list(
     trim = TRUE,
     required = TRUE
   ),
-item2 = list(
+  item2 = list(
     start = 11,
     end = 20,
     align = "r",
