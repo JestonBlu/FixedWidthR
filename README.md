@@ -52,4 +52,4 @@ fw.make(conf, data, file = 'EXAMPLE')
 
 ```
 
-**Note** The configuration design of this package borrowed heavily from another python package of the same name (ShawnMilo/fixedwidth)[https://github.com/ShawnMilo/fixedwidth]
+**Note** The configuration design of this package borrowed heavily from another python package of the same name [ShawnMilo/fixedwidth](https://github.com/ShawnMilo/fixedwidth)
